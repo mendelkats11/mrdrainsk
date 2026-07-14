@@ -86,7 +86,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-2.5">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-2.5 lg:gap-1.5">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text">
           Name
@@ -99,7 +99,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "name-error" : undefined}
-          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 lg:py-1.5 text-text placeholder:text-text-muted/60"
           placeholder="Jamie Reyes"
         />
         {errors.name && (
@@ -121,7 +121,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "email-error" : undefined}
-          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 lg:py-1.5 text-text placeholder:text-text-muted/60"
           placeholder="jamie@example.com"
         />
         {errors.email && (
@@ -143,7 +143,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? "phone-error" : undefined}
-          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 font-mono text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 lg:py-1.5 font-mono text-text placeholder:text-text-muted/60"
           placeholder="(306) 555-0142"
         />
         {errors.phone && (
@@ -163,7 +163,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, serviceArea: e.target.value }))}
           aria-invalid={Boolean(errors.serviceArea)}
           aria-describedby={errors.serviceArea ? "area-error" : undefined}
-          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-text"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 lg:py-1.5 text-text"
         >
           <option value="">Select your community&hellip;</option>
           {serviceAreas.map((area) => (
@@ -190,7 +190,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 lg:py-1.5 text-text placeholder:text-text-muted/60"
           placeholder="What's going on, and when did it start?"
         />
         {errors.message && (
@@ -210,7 +210,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-1 cursor-pointer rounded-lg bg-brass px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-1 cursor-pointer rounded-lg bg-brass px-6 py-3 lg:py-2 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Get My Free Quote!"}
       </button>

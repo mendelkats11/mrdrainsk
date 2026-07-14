@@ -20,12 +20,12 @@ export function Hero() {
       </div>
 
       <div className="relative border-b border-border/60">
-        <div className="mx-auto max-w-7xl px-4 py-2.5 text-xs text-text-muted sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-1.5 text-xs text-text-muted sm:px-6 lg:px-8">
           Proudly serving Saskatoon and all surrounding areas
         </div>
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:py-14 lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:py-6 lg:px-8">
         <div>
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.35em] text-brass">
             Mr. Drain Plumber
@@ -74,11 +74,11 @@ export function Hero() {
 
         <div
           id="quote-form"
-          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-5 sm:p-6"
+          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-4 sm:p-6 lg:p-4"
           style={{ boxShadow: "0 30px 80px -20px rgba(217,164,65,0.4)" }}
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="font-display text-xl font-semibold text-text lg:text-2xl">
+            <h2 className="font-display text-xl font-semibold text-text lg:text-lg">
               Get a Free Quote
             </h2>
             <div className="inline-flex items-center gap-2 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
@@ -89,11 +89,11 @@ export function Hero() {
               We respond quickly
             </div>
           </div>
-          <p className="mt-1 text-sm text-text-muted">
+          <p className="mt-1 text-sm text-text-muted lg:hidden">
             Fill out the form and we&apos;ll get back to you the same
             business day.
           </p>
-          <div className="mt-4">
+          <div className="mt-3 lg:mt-2">
             <ContactForm />
           </div>
         </div>
