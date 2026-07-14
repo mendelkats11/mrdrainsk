@@ -73,7 +73,8 @@ export function Hero() {
         </div>
 
         <div
-          className="rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-6 sm:p-8"
+          id="quote-form"
+          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-6 sm:p-8"
           style={{ boxShadow: "0 30px 80px -20px rgba(217,164,65,0.4)" }}
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">

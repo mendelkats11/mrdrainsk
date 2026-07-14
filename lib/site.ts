@@ -6,9 +6,9 @@ export const site = {
   email: "info@mrdrainsk.com",
   emailHref: "mailto:info@mrdrainsk.com",
   addressLine: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
-  hours: "Mon–Sat 7am–7pm · 24/7 Emergency Line",
-  yearsInBusiness: 14,
-  foundedYear: 2011,
+  hours: "24/7 Emergency Line",
+  yearsInBusiness: 8,
+  foundedYear: 2018,
   serviceCities: [
     "Saskatoon",
     "Brighton",

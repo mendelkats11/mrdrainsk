@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { PhotoBackground } from "@/components/PhotoBackground";
-import { NetlifyHiddenForm } from "@/components/NetlifyHiddenForm";
 import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon } from "@/components/icons/UiIcons";
 import { serviceAreas } from "@/lib/service-areas";
 import { site } from "@/lib/site";
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <NetlifyHiddenForm />
       <section className="relative overflow-hidden border-b border-border bg-surface/40">
         <PhotoBackground src="/photos/contact-bg.jpg" alt="" />
         <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">

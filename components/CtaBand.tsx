@@ -5,9 +5,13 @@ import { PhoneIcon, QuoteBoltIcon } from "@/components/icons/UiIcons";
 export function CtaBand({
   heading = "Got a plumbing problem that can't wait?",
   subheading = `Call ${site.phone} or send us the details — most requests get a same-day response.`,
+  phone = site.phone,
+  phoneHref = site.phoneHref,
 }: {
   heading?: string;
   subheading?: string;
+  phone?: string;
+  phoneHref?: string;
 }) {
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface">
@@ -25,11 +29,11 @@ export function CtaBand({
         <p className="max-w-xl text-text-muted">{subheading}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <a
-            href={site.phoneHref}
+            href={phoneHref}
             className="flex items-center justify-center gap-2 rounded-lg bg-teal-bright px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-teal"
           >
             <PhoneIcon className="h-4 w-4" />
-            Call {site.phone}
+            Call {phone}
           </a>
           <Link
             href="/contact"

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { serviceAreas } from "@/lib/service-areas";
 import { site } from "@/lib/site";
@@ -22,10 +22,9 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [areasOpen, setAreasOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Reset transient nav UI when the route changes (derived during render,
   // per React's "adjusting state" pattern, to avoid an extra effect pass).
@@ -33,18 +32,8 @@ export function Header() {
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setMobileOpen(false);
-    setAreasOpen(false);
+    setMobileAreasOpen(false);
   }
-
-  useEffect(() => {
-    function onClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setAreasOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/95 backdrop-blur supports-[backdrop-filter]:bg-bg/80">
@@ -58,32 +47,29 @@ export function Header() {
             </NavLink>
           ))}
 
-          <div ref={dropdownRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setAreasOpen((v) => !v)}
-              aria-expanded={areasOpen}
-              aria-haspopup="true"
-              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:text-text"
+          <div className="group relative">
+            <Link
+              href="/service-areas"
+              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                pathname.startsWith("/service-areas")
+                  ? "text-brass"
+                  : "text-text-muted hover:text-text"
+              }`}
             >
               Service Areas
-              <ChevronDownIcon
-                className={`h-4 w-4 transition-transform ${areasOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {areasOpen && (
-              <div className="absolute left-0 top-full mt-1 w-56 rounded-lg border border-border bg-surface p-2 shadow-xl">
-                {serviceAreas.map((area) => (
-                  <Link
-                    key={area.slug}
-                    href={`/service-areas/${area.slug}`}
-                    className="block rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:bg-bg hover:text-text"
-                  >
-                    {area.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+              <ChevronDownIcon className="h-4 w-4 transition-transform group-hover:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-0 top-full z-10 w-56 rounded-lg border border-border bg-surface p-2 shadow-xl group-hover:visible">
+              {serviceAreas.map((area) => (
+                <Link
+                  key={area.slug}
+                  href={`/service-areas/${area.slug}`}
+                  className="block rounded-md px-3 py-2 text-sm text-text transition-colors hover:bg-bg hover:text-brass"
+                >
+                  {area.name}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {navLinks.slice(2).map((link) => (
@@ -140,21 +126,32 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 mb-2 px-2 font-mono text-xs uppercase tracking-wide text-text-muted">
+
+          <button
+            type="button"
+            onClick={() => setMobileAreasOpen((v) => !v)}
+            aria-expanded={mobileAreasOpen}
+            className="mt-2 flex w-full items-center justify-between rounded-md px-2 py-3 text-base font-medium text-text"
+          >
             Service Areas
-          </p>
-          <ul className="grid grid-cols-2 gap-1">
-            {serviceAreas.map((area) => (
-              <li key={area.slug}>
-                <Link
-                  href={`/service-areas/${area.slug}`}
-                  className="block rounded-md px-2 py-2 text-sm text-text-muted"
-                >
-                  {area.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+            <ChevronDownIcon
+              className={`h-4 w-4 transition-transform ${mobileAreasOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+          {mobileAreasOpen && (
+            <ul className="grid grid-cols-2 gap-1 pb-2">
+              {serviceAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/service-areas/${area.slug}`}
+                    className="block rounded-md px-2 py-2 text-sm text-text"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </nav>
       )}
     </header>

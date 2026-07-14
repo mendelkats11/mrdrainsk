@@ -3,9 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/CtaBand";
 import { PhotoBackground } from "@/components/PhotoBackground";
-import { PhoneIcon, QuoteBoltIcon } from "@/components/icons/UiIcons";
+import { PhoneIcon, QuoteBoltIcon, MapPinIcon } from "@/components/icons/UiIcons";
 import { getServiceAreaBySlug, serviceAreas } from "@/lib/service-areas";
-import { site } from "@/lib/site";
 
 export function generateStaticParams() {
   return serviceAreas.map((area) => ({ slug: area.slug }));
@@ -53,20 +52,25 @@ export default async function ServiceAreaPage({
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={site.phoneHref}
+              href={area.phoneHref}
               className="flex items-center justify-center gap-2 rounded-lg bg-brass px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim"
             >
               <PhoneIcon className="h-4 w-4" />
-              Call <span className="font-mono">{site.phone}</span>
+              Call <span className="font-mono">{area.phone}</span>
             </a>
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold text-text transition-colors hover:border-teal hover:text-teal-bright"
+              className="flex items-center justify-center gap-2 rounded-lg border-2 border-border bg-surface/80 px-6 py-3.5 text-sm font-semibold text-text backdrop-blur transition-colors hover:border-teal-bright hover:text-teal-bright"
             >
               <QuoteBoltIcon className="h-4 w-4" />
               Get My Free Quote
             </Link>
           </div>
+
+          <p className="mt-4 flex items-center gap-2 text-sm text-text-muted">
+            <MapPinIcon className="h-4 w-4 shrink-0 text-teal-bright" />
+            {area.address}
+          </p>
         </div>
       </section>
 
@@ -104,7 +108,9 @@ export default async function ServiceAreaPage({
 
       <CtaBand
         heading={`Ready to book a ${area.name} plumber?`}
-        subheading={`Call ${site.phone} or send us the details — we'll give you a real arrival window, not a vague afternoon.`}
+        subheading={`Call ${area.phone} or send us the details — we'll give you a real arrival window, not a vague afternoon.`}
+        phone={area.phone}
+        phoneHref={area.phoneHref}
       />
     </>
   );

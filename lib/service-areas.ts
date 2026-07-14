@@ -3,17 +3,27 @@ export interface ServiceArea {
   name: string;
   kind: "neighborhood" | "satellite-city";
   region: string;
+  phone: string;
+  phoneHref: string;
+  address: string;
   intro: string;
   detail: string;
   homesNote: string;
 }
 
+// phone / phoneHref / address are independent placeholder values per area
+// (not shared constants) so each one can be edited on its own without
+// affecting the others — just replace the value directly on the area you
+// want to update.
 export const serviceAreas: ServiceArea[] = [
   {
     slug: "brighton",
     name: "Brighton",
     kind: "neighborhood",
     region: "Northeast Saskatoon",
+    phone: "(306)-220-4770",
+    phoneHref: "tel:+13062204770",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "Brighton is one of Saskatoon's newest neighborhoods, built out on the northeast edge of the city along McOrmond Drive.",
     detail:
@@ -25,6 +35,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Rosewood",
     kind: "neighborhood",
     region: "Southeast Saskatoon",
+    phone: "(306) 555-0142",
+    phoneHref: "tel:+13065550142",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "Rosewood sits in southeast Saskatoon, one of the city's larger new-growth neighborhoods over the last fifteen years.",
     detail:
@@ -36,6 +49,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Stonebridge",
     kind: "neighborhood",
     region: "South Saskatoon",
+    phone: "(306) 555-0142",
+    phoneHref: "tel:+13065550142",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "Stonebridge is a well-established south Saskatoon neighborhood along the river, with homes now old enough that first-generation fixtures and water heaters are reaching end of life.",
     detail:
@@ -47,6 +63,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "College Park",
     kind: "neighborhood",
     region: "Saskatoon area",
+    phone: "(306) 555-0142",
+    phoneHref: "tel:+13065550142",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "College Park is a quieter, established residential pocket in the Saskatoon area, with a steady mix of long-time owners and newer families.",
     detail:
@@ -58,6 +77,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Martensville",
     kind: "satellite-city",
     region: "Satellite city, north of Saskatoon",
+    phone: "(306) 555-0142",
+    phoneHref: "tel:+13065550142",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "Martensville is a satellite city about 12 minutes north of Saskatoon on Highway 12, and one of the fastest-growing communities in the region.",
     detail:
@@ -69,6 +91,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Warman",
     kind: "satellite-city",
     region: "Satellite city, north of Saskatoon",
+    phone: "(306) 555-0142",
+    phoneHref: "tel:+13065550142",
+    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
     intro:
       "Warman is a satellite city just northwest of Saskatoon, one of the fastest-growing municipalities in the province.",
     detail:

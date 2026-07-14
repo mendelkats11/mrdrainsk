@@ -1,28 +1,38 @@
 import type { Metadata } from "next";
-import { Fraunces, Public_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCTA } from "@/components/MobileCTA";
 import { site } from "@/lib/site";
 
-const fraunces = Fraunces({
+// Self-hosted (downloaded from Google Fonts, latin subset) instead of
+// next/font/google, since that requires a live fetch to fonts.googleapis.com
+// at build/dev time — not guaranteed in every environment this runs in.
+const fraunces = localFont({
+  src: "./fonts/fraunces-variable.woff2",
+  weight: "500 700",
+  style: "normal",
   variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const publicSans = Public_Sans({
+const publicSans = localFont({
+  src: "./fonts/public-sans-variable.woff2",
+  weight: "400 800",
+  style: "normal",
   variable: "--font-public-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const plexMono = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-mono-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-mono-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-mono-600.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

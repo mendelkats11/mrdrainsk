@@ -3,10 +3,11 @@
 import { useState, type FormEvent } from "react";
 import { serviceAreas } from "@/lib/service-areas";
 import { CheckCircleIcon } from "@/components/icons/UiIcons";
-import { submitContactForm } from "@/lib/netlify-forms";
+import { submitContactForm } from "@/lib/formsubmit";
 
 interface FormState {
   name: string;
+  email: string;
   phone: string;
   serviceArea: string;
   message: string;
@@ -14,6 +15,7 @@ interface FormState {
 
 const initialState: FormState = {
   name: "",
+  email: "",
   phone: "",
   serviceArea: "",
   message: "",
@@ -29,6 +31,11 @@ export function ContactForm() {
   function validate(values: FormState) {
     const next: Partial<Record<keyof FormState, string>> = {};
     if (!values.name.trim()) next.name = "Please enter your name.";
+    if (!values.email.trim()) {
+      next.email = "Please enter your email.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
+      next.email = "Please enter a valid email.";
+    }
     if (!values.phone.trim()) {
       next.phone = "Please enter a phone number.";
     } else if (!/^[\d()+\-.\s]{7,}$/.test(values.phone.trim())) {
@@ -70,7 +77,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-2 text-sm font-semibold text-brass hover:text-brass-dim"
+          className="mt-2 cursor-pointer text-sm font-semibold text-brass hover:text-brass-dim"
         >
           Send another request
         </button>
@@ -79,7 +86,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text">
           Name
@@ -92,12 +99,34 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "name-error" : undefined}
-          className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-text placeholder:text-text-muted/60"
           placeholder="Jamie Reyes"
         />
         {errors.name && (
-          <p id="name-error" className="mt-1.5 text-sm text-red-400">
+          <p id="name-error" className="mt-1 text-sm text-red-400">
             {errors.name}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-text">
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          autoComplete="email"
+          value={form.email}
+          onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? "email-error" : undefined}
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-text placeholder:text-text-muted/60"
+          placeholder="jamie@example.com"
+        />
+        {errors.email && (
+          <p id="email-error" className="mt-1 text-sm text-red-400">
+            {errors.email}
           </p>
         )}
       </div>
@@ -114,11 +143,11 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? "phone-error" : undefined}
-          className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 font-mono text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2.5 font-mono text-text placeholder:text-text-muted/60"
           placeholder="(306) 555-0142"
         />
         {errors.phone && (
-          <p id="phone-error" className="mt-1.5 text-sm text-red-400">
+          <p id="phone-error" className="mt-1 text-sm text-red-400">
             {errors.phone}
           </p>
         )}
@@ -134,7 +163,7 @@ export function ContactForm() {
           onChange={(e) => setForm((f) => ({ ...f, serviceArea: e.target.value }))}
           aria-invalid={Boolean(errors.serviceArea)}
           aria-describedby={errors.serviceArea ? "area-error" : undefined}
-          className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-text"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-text"
         >
           <option value="">Select your community&hellip;</option>
           {serviceAreas.map((area) => (
@@ -144,7 +173,7 @@ export function ContactForm() {
           ))}
         </select>
         {errors.serviceArea && (
-          <p id="area-error" className="mt-1.5 text-sm text-red-400">
+          <p id="area-error" className="mt-1 text-sm text-red-400">
             {errors.serviceArea}
           </p>
         )}
@@ -156,16 +185,16 @@ export function ContactForm() {
         </label>
         <textarea
           id="message"
-          rows={5}
+          rows={3}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-text placeholder:text-text-muted/60"
+          className="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-text placeholder:text-text-muted/60"
           placeholder="What's going on, and when did it start?"
         />
         {errors.message && (
-          <p id="message-error" className="mt-1.5 text-sm text-red-400">
+          <p id="message-error" className="mt-1 text-sm text-red-400">
             {errors.message}
           </p>
         )}
@@ -181,7 +210,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-2 rounded-lg bg-brass px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-1 cursor-pointer rounded-lg bg-brass px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Get My Free Quote!"}
       </button>
