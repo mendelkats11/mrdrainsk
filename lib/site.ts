@@ -1,0 +1,21 @@
+export const site = {
+  name: "Mr. Drain Plumber",
+  tagline: "Saskatoon's straight-talking plumbers",
+  phone: "(306) 555-0142",
+  phoneHref: "tel:+13065550142",
+  email: "info@mrdrainsk.com",
+  emailHref: "mailto:info@mrdrainsk.com",
+  addressLine: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
+  hours: "Mon–Sat 7am–7pm · 24/7 Emergency Line",
+  yearsInBusiness: 14,
+  foundedYear: 2011,
+  serviceCities: [
+    "Saskatoon",
+    "Brighton",
+    "Rosewood",
+    "Stonebridge",
+    "College Park",
+    "Martensville",
+    "Warman",
+  ],
+} as const;
