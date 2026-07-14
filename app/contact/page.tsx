@@ -38,12 +38,15 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
-          <div className="rounded-xl border border-border bg-surface p-6 sm:p-8">
+          <div
+            className="rounded-xl border border-border border-t-4 border-t-brass bg-surface p-6 sm:p-8"
+            style={{ boxShadow: "0 20px 60px -25px rgba(217,164,65,0.3)" }}
+          >
             <ContactForm />
           </div>
 
           <div className="flex flex-col gap-8">
-            <div className="rounded-xl border border-border bg-surface p-6">
+            <div className="rounded-xl border border-teal/30 bg-surface p-6 shadow-lg shadow-black/20">
               <h2 className="font-display text-lg font-semibold text-text">
                 Direct contact
               </h2>
@@ -71,7 +74,7 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div className="rounded-xl border border-border bg-surface p-6">
+            <div className="rounded-xl border border-brass/30 bg-surface p-6 shadow-lg shadow-black/20">
               <h2 className="font-display text-lg font-semibold text-text">
                 Serving your neighborhood
               </h2>

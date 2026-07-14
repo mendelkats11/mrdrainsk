@@ -30,8 +30,18 @@
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-* {
-  border-color: var(--color-border);
+/* Tailwind v4 defaults unstyled borders to currentColor; this gives them
+   a sensible dark default instead — placed in @layer base (not
+   unlayered) so it doesn't win over explicit border-color utilities like
+   border-t-brass or border-teal/30, which live in the utilities layer. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
 }
 
 html {

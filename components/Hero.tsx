@@ -74,7 +74,7 @@ export function Hero() {
 
         <div
           id="quote-form"
-          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-4 sm:p-6 lg:p-4"
+          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-4 sm:p-6 lg:p-5"
           style={{ boxShadow: "0 30px 80px -20px rgba(217,164,65,0.4)" }}
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
@@ -89,11 +89,11 @@ export function Hero() {
               We respond quickly
             </div>
           </div>
-          <p className="mt-1 text-sm text-text-muted lg:hidden">
+          <p className="mt-1 text-sm text-text-muted">
             Fill out the form and we&apos;ll get back to you the same
             business day.
           </p>
-          <div className="mt-3 lg:mt-2">
+          <div className="mt-3 lg:mt-3">
             <ContactForm />
           </div>
         </div>

@@ -86,7 +86,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-2.5 lg:gap-1.5">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-2.5">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text">
           Name
