@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { serviceAreas } from "@/lib/service-areas";
 import { CheckCircleIcon } from "@/components/icons/UiIcons";
-import { submitContactForm } from "@/lib/formsubmit";
+import { submitContactForm } from "@/lib/contact";
 
 interface FormState {
   name: string;
