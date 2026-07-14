@@ -74,25 +74,26 @@ export function Hero() {
 
         <div
           id="quote-form"
-          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-6 sm:p-8"
+          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-5 sm:p-6"
           style={{ boxShadow: "0 30px 80px -20px rgba(217,164,65,0.4)" }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-            </span>
-            We respond quickly
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-display text-xl font-semibold text-text lg:text-2xl">
+              Get a Free Quote
+            </h2>
+            <div className="inline-flex items-center gap-2 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
+              </span>
+              We respond quickly
+            </div>
           </div>
-
-          <h2 className="mt-3 font-display text-2xl font-semibold text-text">
-            Get a Free Quote
-          </h2>
           <p className="mt-1 text-sm text-text-muted">
             Fill out the form and we&apos;ll get back to you the same
             business day.
           </p>
-          <div className="mt-6">
+          <div className="mt-4">
             <ContactForm />
           </div>
         </div>
