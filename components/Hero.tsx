@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
-import { PhoneIcon } from "@/components/icons/UiIcons";
+import { ResponseBadge } from "@/components/ResponseBadge";
+import { PhoneIcon, StarIcon } from "@/components/icons/UiIcons";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -20,8 +21,16 @@ export function Hero() {
       </div>
 
       <div className="relative border-b border-border/60">
-        <div className="mx-auto max-w-7xl px-4 py-1.5 text-xs text-text-muted sm:px-6 lg:px-8">
-          Proudly serving Saskatoon and all surrounding areas
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 text-xs text-text-muted sm:px-6 lg:px-8">
+          <span>Proudly serving Saskatoon and all surrounding areas</span>
+          <span className="flex items-center gap-1.5 whitespace-nowrap">
+            <span className="flex items-center gap-0.5" aria-hidden="true">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <StarIcon key={i} className="h-3 w-3 text-brass" />
+              ))}
+            </span>
+            <span className="font-semibold text-text">5.0</span> on Google
+          </span>
         </div>
       </div>
 
@@ -74,20 +83,21 @@ export function Hero() {
 
         <div
           id="quote-form"
-          className="scroll-mt-28 rounded-2xl border border-border border-t-4 border-t-brass bg-surface p-4 sm:p-6 lg:p-5"
+          className="relative scroll-mt-28 overflow-hidden rounded-2xl border border-border bg-surface p-4 sm:p-6 lg:p-5"
           style={{ boxShadow: "0 30px 80px -20px rgba(217,164,65,0.4)" }}
         >
-          <div className="flex flex-wrap items-center justify-between gap-2">
+          <div
+            className="absolute inset-x-0 top-0 h-[3px]"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, var(--color-brass) 25%, var(--color-brass) 75%, transparent)",
+            }}
+          />
+          <div className="flex flex-wrap items-center gap-3">
             <h2 className="font-display text-xl font-semibold text-text lg:text-lg">
               Get a Free Quote
             </h2>
-            <div className="inline-flex items-center gap-2 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-              </span>
-              We respond quickly
-            </div>
+            <ResponseBadge />
           </div>
           <p className="mt-1 text-sm text-text-muted">
             Fill out the form and we&apos;ll get back to you the same

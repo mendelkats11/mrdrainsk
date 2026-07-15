@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
+import { ResponseBadge } from "@/components/ResponseBadge";
 import { PhotoBackground } from "@/components/PhotoBackground";
 import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon } from "@/components/icons/UiIcons";
 import { serviceAreas } from "@/lib/service-areas";
@@ -39,10 +40,25 @@ export default function ContactPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
           <div
-            className="rounded-xl border border-border border-t-4 border-t-brass bg-surface p-6 sm:p-8"
+            className="relative overflow-hidden rounded-xl border border-border bg-surface p-6 sm:p-8"
             style={{ boxShadow: "0 20px 60px -25px rgba(217,164,65,0.3)" }}
           >
-            <ContactForm />
+            <div
+              className="absolute inset-x-0 top-0 h-[3px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, var(--color-brass) 25%, var(--color-brass) 75%, transparent)",
+              }}
+            />
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="font-display text-xl font-semibold text-text">
+                Get a Free Quote
+              </h2>
+              <ResponseBadge />
+            </div>
+            <div className="mt-4">
+              <ContactForm />
+            </div>
           </div>
 
           <div className="flex flex-col gap-8">

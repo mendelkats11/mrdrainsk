@@ -12,6 +12,17 @@ import { NextResponse } from "next/server";
  * .env.local for local dev, but that file is gitignored on purpose and
  * never reaches the deployed server — every hosting platform requires
  * secrets to be entered separately in its own dashboard/config.
+ *
+ * RESPONSE TIMING: this waits for Resend's actual response and only
+ * returns ok:true once Resend has genuinely confirmed the send — the
+ * client should never see "success" for something that wasn't actually
+ * sent. The timeout below exists purely as a safety net against a truly
+ * dead connection, not as an impatience cutoff — it's set generously
+ * long specifically so it doesn't fire while a request is still
+ * legitimately in flight (that was the earlier bug: a too-short timeout
+ * aborted requests that would have succeeded if given a few more
+ * seconds, which produced a false "something went wrong" on emails that
+ * had, in reality, already gone out).
  */
 
 const RESEND_API_URL = "https://api.resend.com/emails";
@@ -21,7 +32,7 @@ const TO_ADDRESSES = ["mendelkats10@gmail.com", "info@mrdrainsk.com"];
 // domain rather than the shared onboarding@resend.dev sandbox address.
 const FROM_ADDRESS = "Mr. Drain Plumber <quotes@mrdrainsk.com>";
 
-const REQUEST_TIMEOUT_MS = 15000;
+const RESEND_TIMEOUT_MS = 45000;
 
 interface ContactRequestBody {
   name: string;
@@ -70,7 +81,7 @@ export async function POST(request: Request) {
   }
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const timeout = setTimeout(() => controller.abort(), RESEND_TIMEOUT_MS);
 
   try {
     const resendRes = await fetch(RESEND_API_URL, {
@@ -103,6 +114,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "Failed to send." }, { status: 502 });
     }
 
+    console.log("[contact] Resend confirmed the send.");
     return NextResponse.json({ ok: true });
   } catch (err) {
     const timedOut = err instanceof DOMException && err.name === "AbortError";

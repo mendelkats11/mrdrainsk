@@ -6,7 +6,11 @@ export interface ContactSubmission {
   message: string;
 }
 
-const TIMEOUT_MS = 20000;
+// Must stay longer than the server route's own Resend timeout (45s — see
+// app/api/contact/route.ts), which itself waits for genuine confirmation
+// before responding. If this fired first, the client would give up on a
+// request our server was still legitimately waiting to confirm.
+const TIMEOUT_MS = 50000;
 
 /**
  * Posts to our own /api/contact route, which sends the email server-side

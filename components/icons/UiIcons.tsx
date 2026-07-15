@@ -155,6 +155,14 @@ export function MailIcon({ className = "" }: { className?: string }) {
   );
 }
 
+export function StarIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12 2.5 15 9l7 .9-5.1 4.9L18.2 21.5 12 17.9 5.8 21.5 7.1 14.8 2 9.9 9 9l3-6.5Z" />
+    </svg>
+  );
+}
+
 export function ShieldCheckIcon({ className = "" }: { className?: string }) {
   return (
     <svg
