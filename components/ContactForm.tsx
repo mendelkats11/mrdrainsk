@@ -23,7 +23,7 @@ const initialState: FormState = {
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm() {
+export function ContactForm({ source = "Contact Page" }: { source?: string }) {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -54,7 +54,7 @@ export function ContactForm() {
 
     setStatus("submitting");
     try {
-      await submitContactForm(form);
+      await submitContactForm({ ...form, source });
       setStatus("success");
       setForm(initialState);
     } catch {

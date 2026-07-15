@@ -4,6 +4,7 @@ export interface ContactSubmission {
   phone: string;
   serviceArea: string;
   message: string;
+  source: string;
 }
 
 // Must stay longer than the server route's own Resend timeout (45s — see

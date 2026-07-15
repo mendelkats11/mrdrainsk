@@ -40,6 +40,7 @@ interface ContactRequestBody {
   phone: string;
   serviceArea: string;
   message: string;
+  source?: string;
 }
 
 function isValidBody(body: unknown): body is ContactRequestBody {
@@ -80,6 +81,8 @@ export async function POST(request: Request) {
     );
   }
 
+  const source = rawBody.source?.trim() || "Unknown page";
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), RESEND_TIMEOUT_MS);
 
@@ -94,8 +97,9 @@ export async function POST(request: Request) {
         from: FROM_ADDRESS,
         to: TO_ADDRESSES,
         reply_to: rawBody.email,
-        subject: `New quote request from ${rawBody.name} (${rawBody.serviceArea})`,
+        subject: `[${source}] New quote request from ${rawBody.name} (${rawBody.serviceArea})`,
         text: [
+          `Submitted from: ${source}`,
           `Name: ${rawBody.name}`,
           `Email: ${rawBody.email}`,
           `Phone: ${rawBody.phone}`,
