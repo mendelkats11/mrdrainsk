@@ -21,9 +21,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Brighton",
     kind: "neighborhood",
     region: "Northeast Saskatoon",
-    phone: "(306)-220-4770",
-    phoneHref: "tel:+13062204770",
-    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
+    phone: "(639)-307-3028",
+    phoneHref: "tel:+16393073028",
+    address: "147 Dagnone Ln, Saskatoon, SK S7V 0R1",
     intro:
       "Brighton is one of Saskatoon's newest neighborhoods, built out on the northeast edge of the city along McOrmond Drive.",
     detail:
@@ -35,9 +35,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Rosewood",
     kind: "neighborhood",
     region: "Southeast Saskatoon",
-    phone: "(306) 555-0142",
-    phoneHref: "tel:+13065550142",
-    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
+    phone: "(639)-739-5298",
+    phoneHref: "tel:+16397395298",
+    address: "1354 Kingsmere Blvd, Saskatoon, SK S7J 5H8",
     intro:
       "Rosewood sits in southeast Saskatoon, one of the city's larger new-growth neighborhoods over the last fifteen years.",
     detail:
@@ -49,9 +49,9 @@ export const serviceAreas: ServiceArea[] = [
     name: "Stonebridge",
     kind: "neighborhood",
     region: "South Saskatoon",
-    phone: "(306) 555-0142",
-    phoneHref: "tel:+13065550142",
-    address: "PLACEHOLDER — 1425 8th Street E, Saskatoon, SK S7H 0S6",
+    phone: "(639)-307-4461",
+    phoneHref: "tel:+16393074461",
+    address: "235 Galloway Rd, Saskatoon, SK S7T 0B2",
     intro:
       "Stonebridge is a well-established south Saskatoon neighborhood along the river, with homes now old enough that first-generation fixtures and water heaters are reaching end of life.",
     detail:
