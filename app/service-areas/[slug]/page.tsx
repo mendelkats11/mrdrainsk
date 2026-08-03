@@ -38,7 +38,7 @@ export default async function ServiceAreaPage({
   return (
     <>
       <section className="relative overflow-hidden border-b border-border bg-surface/40">
-        <PhotoBackground src="/photos/areas-bg.jpg" alt="" />
+        <PhotoBackground src={area.bgPhoto} alt="" />
         <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-teal-bright">
             {area.region}
@@ -53,7 +53,8 @@ export default async function ServiceAreaPage({
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={area.phoneHref}
-              className="flex items-center justify-center gap-2 rounded-lg bg-brass px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim"
+              className="flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-bg shadow-lg transition-transform hover:scale-[1.02]"
+              style={{ backgroundImage: "var(--gradient-brass)" }}
             >
               <PhoneIcon className="h-4 w-4" />
               Call <span className="font-mono">{area.phone}</span>

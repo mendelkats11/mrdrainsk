@@ -8,7 +8,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
     <Link
       href={`/services#${service.slug}`}
       id={service.slug}
-      className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-brass/60 scroll-mt-24"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-brass/60 hover:shadow-2xl hover:shadow-brass/10 scroll-mt-24"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg">
         <Image
@@ -19,7 +19,12 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent" />
-        <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-lg bg-teal-bright text-bg shadow-lg transition-colors group-hover:bg-brass">
+        <div className="absolute bottom-3 left-3 h-11 w-11 rounded-lg bg-teal-bright shadow-lg transition-opacity duration-300 group-hover:opacity-0" />
+        <div
+          className="absolute bottom-3 left-3 h-11 w-11 rounded-lg opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100"
+          style={{ backgroundImage: "var(--gradient-brass)" }}
+        />
+        <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-lg text-bg transition-transform duration-300 group-hover:scale-110">
           <ServiceIconGraphic icon={service.icon} className="h-5 w-5" />
         </div>
       </div>

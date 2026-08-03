@@ -9,6 +9,7 @@ export interface ServiceArea {
   intro: string;
   detail: string;
   homesNote: string;
+  bgPhoto: string;
 }
 
 // phone / phoneHref / address are independent placeholder values per area
@@ -29,6 +30,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "Because most Brighton homes were built in the last decade, the plumbing itself is rarely the issue — new-build PEX systems hold up well. What we see more of here is builder-grade fixtures wearing out early, sump pump systems working overtime during spring runoff since the neighborhood backs onto newly graded land, and the occasional rough-in issue surfacing a few years after possession. Our trucks are in and around Brighton regularly for exactly these calls.",
     homesNote: "Typical housing stock: 2013–present, PEX supply lines, sump pump standard.",
+    bgPhoto: "/photos/collage/collage-main.jpg",
   },
   {
     slug: "rosewood",
@@ -43,6 +45,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "Rosewood's mix of single-family homes, condos, and townhomes each come with different plumbing quirks — shared-wall condos tend to call us for low water pressure and shared-stack drain issues, while single-family homes are more often sump pump and fixture calls. We know the neighborhood's layout well enough to give you a realistic arrival window, not just \"sometime this afternoon.\"",
     homesNote: "Typical housing stock: 2008–present, mix of single-family and multi-unit.",
+    bgPhoto: "/photos/gallery/gallery-5.jpg",
   },
   {
     slug: "stonebridge",
@@ -57,6 +60,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "A lot of our Stonebridge calls are homeowners replacing the original builder-grade water heater or dealing with a fixture that's simply worn out after 15+ years of daily use. We also handle our share of frozen pipe calls on homes near the river valley where cold air pockets around exterior walls. If your Stonebridge home hasn't had a plumbing check since it was built, it's about due.",
     homesNote: "Typical housing stock: 2005–2015, original fixtures reaching end of service life.",
+    bgPhoto: "/photos/collage/collage-boiler.jpg",
   },
   {
     slug: "college-park",
@@ -71,6 +75,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "Homes in College Park run the full range of ages, so our calls here are just as varied — everything from routine drain cleaning to full water heater replacements on original units. What homeowners tell us they value most is that we show up on time and give a straight answer about whether something needs fixing now or can reasonably wait.",
     homesNote: "Typical housing stock: mixed vintage, wide range of plumbing systems.",
+    bgPhoto: "/photos/gallery/gallery-1.jpg",
   },
   {
     slug: "martensville",
@@ -85,6 +90,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "We treat Martensville as a full part of our regular service area, not an out-of-town add-on — a dedicated truck covers Martensville and Warman calls so you're not waiting behind a full Saskatoon schedule. New-construction growth here means a steady mix of warranty-adjacent fixture issues alongside the same winter freeze-up calls every Saskatchewan community deals with.",
     homesNote: "Typical housing stock: rapid new-build growth, mixed with older acreage-style homes.",
+    bgPhoto: "/photos/gallery/gallery-4.jpg",
   },
   {
     slug: "warman",
@@ -99,6 +105,7 @@ export const serviceAreas: ServiceArea[] = [
     detail:
       "With Warman's rapid growth has come a wide spread of home ages in a small area — from brand-new subdivisions to original 1990s-era housing stock. We're familiar with both: newer homes tend to bring us sump pump and fixture calls, while older Warman homes are more often pipe repair and water heater replacement. Being close by means a faster response than a city-based plumber who treats Warman as an afterthought.",
     homesNote: "Typical housing stock: mixed, from 1990s original homes to current new-build phases.",
+    bgPhoto: "/photos/gallery/gallery-6.jpg",
   },
 ];
 

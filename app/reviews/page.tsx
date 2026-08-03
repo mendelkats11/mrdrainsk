@@ -48,7 +48,8 @@ export default function ReviewsPage() {
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link
           href="/contact"
-          className="rounded-lg bg-brass px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim"
+          className="rounded-lg px-6 py-3 text-sm font-semibold text-bg shadow-lg transition-all hover:brightness-110"
+          style={{ backgroundImage: "var(--gradient-brass)" }}
         >
           Contact Us
         </Link>

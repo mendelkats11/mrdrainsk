@@ -210,7 +210,8 @@ export function ContactForm({ source = "Contact Page" }: { source?: string }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-1 cursor-pointer rounded-lg bg-brass px-6 py-3 lg:py-2 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-1 cursor-pointer rounded-lg px-6 py-3 lg:py-2 text-sm font-semibold text-bg shadow-lg transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+        style={{ backgroundImage: "var(--gradient-brass)" }}
       >
         {status === "submitting" ? "Sending…" : "Get My Free Quote!"}
       </button>

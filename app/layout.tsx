@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 // at build/dev time — not guaranteed in every environment this runs in.
 const fraunces = localFont({
   src: "./fonts/fraunces-variable.woff2",
-  weight: "500 700",
+  weight: "500 900",
   style: "normal",
   variable: "--font-fraunces",
   display: "swap",

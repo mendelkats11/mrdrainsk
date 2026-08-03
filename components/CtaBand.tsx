@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import { PhoneIcon, QuoteBoltIcon } from "@/components/icons/UiIcons";
 
@@ -22,7 +23,7 @@ export function CtaBand({
             "radial-gradient(ellipse 700px 400px at 50% 0%, rgba(230,172,53,0.14), transparent 65%)",
         }}
       />
-      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6 lg:px-8">
+      <Reveal className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-2xl font-semibold text-text sm:text-3xl">
           {heading}
         </h2>
@@ -37,13 +38,14 @@ export function CtaBand({
           </a>
           <Link
             href="/contact"
-            className="flex items-center justify-center gap-2 rounded-lg bg-brass px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim"
+            className="flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-bg shadow-lg transition-all hover:brightness-110"
+            style={{ backgroundImage: "var(--gradient-brass)" }}
           >
-            <QuoteBoltIcon className="h-4 w-4" />
+            <QuoteBoltIcon className="h-4 w-4 animate-icon-flash" />
             Get My Free Quote
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

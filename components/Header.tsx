@@ -89,9 +89,10 @@ export function Header() {
           </a>
           <Link
             href="/contact"
-            className="flex items-center gap-2 rounded-md bg-brass px-4 py-2 text-sm font-semibold text-bg transition-colors hover:bg-brass-dim"
+            className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-bg shadow-md transition-all hover:brightness-110"
+            style={{ backgroundImage: "var(--gradient-brass)" }}
           >
-            <QuoteBoltIcon className="h-4 w-4" />
+            <QuoteBoltIcon className="h-4 w-4 animate-icon-flash" />
             Get Free Quote
           </Link>
         </div>
